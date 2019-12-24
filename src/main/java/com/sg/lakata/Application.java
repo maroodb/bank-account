@@ -5,6 +5,8 @@
  */
 package com.sg.lakata;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author maroodb
@@ -15,7 +17,8 @@ public class Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hi Kata");
+        BigDecimal bd = new BigDecimal(12);
+        System.out.println(bd);
     }
     
 }

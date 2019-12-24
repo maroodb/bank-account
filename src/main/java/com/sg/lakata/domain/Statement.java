@@ -5,10 +5,24 @@
  */
 package com.sg.lakata.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author maroodb
  */
 public class Statement {
+    
+    private List<Record> records;
+
+    public Statement() {
+        this.records = new ArrayList<>();
+    }
+    
+    public void addRecord(Record record) {
+        
+    }
+    
     
 }
