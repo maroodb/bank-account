@@ -27,6 +27,16 @@ public class Account {
     public Account(Amount balance) {
         this.balance = balance;
     }
+
+    public Account(Statement statement) {
+        this.statement = statement;
+    }
+
+    public Account(Amount balance, Statement statement) {
+        this.balance = balance;
+        this.statement = statement;
+    }
+    
     
     
     public void deposit(Amount amount) throws NegativeAmountException {

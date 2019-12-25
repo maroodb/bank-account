@@ -8,6 +8,7 @@ package com.sg.lakata.domain.test;
 import com.sg.lakata.domain.Account;
 import com.sg.lakata.domain.Amount;
 import static com.sg.lakata.domain.Amount.amountOf;
+import com.sg.lakata.domain.Statement;
 import com.sg.lakata.exceptions.InsufficientFundsException;
 import com.sg.lakata.exceptions.NegativeAmountException;
 import static org.hamcrest.Matchers.equalTo;
@@ -15,20 +16,26 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  *
  * @author maroodb
  */
+@RunWith(MockitoJUnitRunner.class)
 public class AccountTest {
-
+    
+    
     private Account account;
 
     @Before
     public void initialise() {
         this.account = new Account();
     }
-
+    
+  
     @Test(expected = NegativeAmountException.class)
     public void should_detect_negative_value_deposit() throws NegativeAmountException {
         Amount depositAmount = amountOf(-12.55);

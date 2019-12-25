@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 public class Amount {
     
     private BigDecimal value;
+    private static final int SCALE = 2;
     
     public Amount(double value) {
         this.value = BigDecimal.valueOf(value);
@@ -63,7 +64,7 @@ public class Amount {
     
     @Override
     public String toString() {
-        return this.value.toString();
+        return this.value.setScale(SCALE).toString();
     }
     
     

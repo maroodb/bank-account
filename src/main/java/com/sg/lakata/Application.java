@@ -26,15 +26,15 @@ public class Application {
         try {
             Account myAccount = new Account();
             
-            myAccount.deposit(amountOf(1000.36));
-            myAccount.withdraw(amountOf(500.26));
-             myAccount.withdraw(amountOf(100.1));
+             myAccount.deposit(amountOf(10000));
+             myAccount.withdraw(amountOf(500));
+             myAccount.withdraw(amountOf(100));
             
             myAccount.printStatement(System.out);
         } catch (NegativeAmountException ex) {
-            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         } catch (InsufficientFundsException ex) {
-            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
   
     }
