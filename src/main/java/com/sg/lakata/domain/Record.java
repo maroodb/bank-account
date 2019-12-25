@@ -5,10 +5,29 @@
  */
 package com.sg.lakata.domain;
 
+import static com.sg.lakata.commons.Formatter.LINE_FORMAT;
+import java.io.PrintStream;
+
 /**
  *
  * @author maroodb
  */
 public class Record {
+    
+    private Transaction transaction;
+    private Amount currentBalance;
+
+    public Record(Transaction transaction, Amount currentBalance) {
+        this.transaction = transaction;
+        this.currentBalance = currentBalance;
+    }
+    
+    public void printTo(PrintStream printer) {
+      
+        this.transaction.printTo(printer, this.currentBalance);
+    }
+
+   
+    
     
 }

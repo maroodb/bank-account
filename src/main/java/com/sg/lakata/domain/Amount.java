@@ -6,7 +6,6 @@
 package com.sg.lakata.domain;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 /**
  *
@@ -17,7 +16,7 @@ public class Amount {
     private BigDecimal value;
     
     public Amount(double value) {
-        this.value = new BigDecimal(value);
+        this.value = BigDecimal.valueOf(value);
     }
     
     public Amount(String value) {
@@ -32,7 +31,40 @@ public class Amount {
         return new Amount(value);
     }
     
+   
+    
     public Amount plus(Amount amount) {
         return amountOf(this.value.add(amount.value).toString());
     }
+    
+    public boolean isStrictlyPositive() {
+        return this.value.compareTo(BigDecimal.ZERO) > 0;
+    }
+    
+ 
+    public boolean isGreaterOrEqualThan(Amount amount) {
+        return this.value.compareTo(amount.value) >= 0;
+    }
+    
+    public Amount negative() {
+        return amountOf(this.value.negate().toString());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Amount otherAmount = (Amount) obj;
+        
+        if(this.value.equals(otherAmount.value)) {
+            return true;
+        }
+        
+        return false; 
+    }
+    
+    @Override
+    public String toString() {
+        return this.value.toString();
+    }
+    
+    
 }

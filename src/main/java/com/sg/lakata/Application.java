@@ -5,7 +5,12 @@
  */
 package com.sg.lakata;
 
-import java.math.BigDecimal;
+import com.sg.lakata.domain.Account;
+import static com.sg.lakata.domain.Amount.amountOf;
+import com.sg.lakata.exceptions.InsufficientFundsException;
+import com.sg.lakata.exceptions.NegativeAmountException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,8 +22,21 @@ public class Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        BigDecimal bd = new BigDecimal(12);
-        System.out.println(bd);
+    
+        try {
+            Account myAccount = new Account();
+            
+            myAccount.deposit(amountOf(1000.36));
+            myAccount.withdraw(amountOf(500.26));
+             myAccount.withdraw(amountOf(100.1));
+            
+            myAccount.printStatement(System.out);
+        } catch (NegativeAmountException ex) {
+            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InsufficientFundsException ex) {
+            Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
     }
     
 }

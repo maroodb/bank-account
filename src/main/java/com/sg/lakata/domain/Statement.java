@@ -5,6 +5,8 @@
  */
 package com.sg.lakata.domain;
 
+import static com.sg.lakata.commons.Formatter.LINE_FORMAT;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +23,17 @@ public class Statement {
     }
     
     public void addRecord(Record record) {
-        
+        this.records.add(record);
     }
     
+    public void printTo(PrintStream printer) {
+        this.printHeaderTo(printer);
+        this.records.forEach(record -> record.printTo(printer));
+    }
+    
+     private void printHeaderTo(PrintStream printer) {
+        String header = String.format(LINE_FORMAT, "DATE", "DEPOSIT", "WITHDRAW", "BALANCE");
+        printer.println(header);
+    }
     
 }
