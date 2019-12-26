@@ -9,7 +9,6 @@ import static com.sg.lakata.commons.Formatter.LINE_FORMAT;
 import static com.sg.lakata.domain.Amount.amountOf;
 import com.sg.lakata.domain.Transaction;
 import com.sg.lakata.domain.Record;
-import static com.sun.tools.javac.tree.TreeInfo.args;
 import java.io.PrintStream;
 import java.time.LocalDateTime;
 import org.junit.Test;
